@@ -73,17 +73,28 @@ public class TicTacToeGame {
 	else if(board[7] == ch && board[3] == ch && board[5] == ' ') return 5;
 	return 0 ;
 }
+	private static int getBestNextMove(char pc, char user) {
+		int index= potentialWinner(pc);  
+		if(index == 0) 
+			index = potentialWinner(user);    
+		if(index ==0)
+		{  if(board[1]==' ') return 1;
+		   else if(board[3]==' ') return 3;
+		   else if(board[7]==' ') return 7;
+		   else if(board[9]==' ') return 9;
+		   else if(board[5]==' ') return 5;
+		}
+	    
+	    return index;
+	}
+
 	private static boolean pcMove(char pc,char user) {
-    
-		int index;
-		do {
-		index= (int) Math.ceil(Math.random() * 9);
-		}while(board[index] != ' ');
+
+		int index = getBestNextMove(pc, user);
 		if (index == 0)	
 			return false;
 		board[index] = pc;
 		return checkWinner(board,pc);
-		
 	}
 	public static boolean checkWinner(char[] b, char ch) {
 		return ((b[1] == ch && b[2] == ch && b[3] == ch) || (b[4] == ch && b[5] == ch && b[6] == ch)
