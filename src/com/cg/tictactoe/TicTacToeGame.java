@@ -38,10 +38,14 @@ public class TicTacToeGame {
 		int index = sc.nextInt();
 		if (board[index] == ' ') {
 			board[index] = user;
-			return false;
+			return checkWinner(board, user);
 		} else
 			System.out.println("Index is occupied");
 		return userMove(user);
+	}
+
+	public static boolean checkWinner(char[] b, char ch) {
+		return false;
 	}
 
 	public static void main(String[] args) {
