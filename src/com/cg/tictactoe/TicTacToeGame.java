@@ -33,6 +33,17 @@ public class TicTacToeGame {
 		System.out.println("*************");
 	}
 
+	private static boolean userMove(char user) {
+		System.out.println("Where to place the user");
+		int index = sc.nextInt();
+		if (board[index] == ' ') {
+			board[index] = user;
+			return false;
+		} else
+			System.out.println("Index is occupied");
+		return userMove(user);
+	}
+
 	public static void main(String[] args) {
 		System.out.println("Welcome to TicTacToe Game");
 		board = createBoard();
