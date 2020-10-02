@@ -13,7 +13,17 @@ public class TicTacToeGame {
 		return board;
 	}
 	
-	
+
+	private static char inputPlayer() {
+		char choice = Character.toUpperCase(sc.next().charAt(0));
+		if (choice == 'X' || choice == 'O')
+			return choice;
+		else
+			System.out.println("Invalid Choice");
+		return inputPlayer();
+
+	}
+
 	
 	public static void main(String[] args) {
 		System.out.println("Welcome to TicTacToe Game");
