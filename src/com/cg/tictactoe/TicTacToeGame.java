@@ -150,7 +150,7 @@ public class TicTacToeGame {
 	}
 
 	public static void main(String[] args) {
-		
+		while (true) {
 			System.out.println("Welcome to TicTacToe Game");
 			board = createBoard();
 			showBoard();
@@ -181,7 +181,10 @@ public class TicTacToeGame {
 				System.out.println("Its a tie");
 			} else
 				showBoard();
-			
+			System.out.println("Do you want to play again Y/N");
+			char choice = Character.toUpperCase(sc.next().charAt(0));
+			if (choice != 'Y')
+				break;
 		}
 	}
-
+}
