@@ -45,7 +45,10 @@ public class TicTacToeGame {
 	}
 
 	public static boolean checkWinner(char[] b, char ch) {
-		return false;
+		return ((b[1] == ch && b[2] == ch && b[3] == ch) || (b[4] == ch && b[5] == ch && b[6] == ch)
+				|| (b[7] == ch && b[8] == ch && b[9] == ch) || (b[1] == ch && b[4] == ch && b[7] == ch)
+				|| (b[2] == ch && b[5] == ch && b[8] == ch) || (b[3] == ch && b[6] == ch && b[9] == ch)
+				|| (b[1] == ch && b[5] == ch && b[9] == ch) || (b[3] == ch && b[5] == ch && b[7] == ch));
 	}
     
 	public static int tossUp() {
@@ -57,5 +60,32 @@ public class TicTacToeGame {
 		System.out.println("Welcome to TicTacToe Game");
 		board = createBoard();
 		showBoard();
+		System.out.println("Choose bw X/O");
+		char user = inputPlayer();
+		char pc = (user == 'X') ? 'O' : 'X';
+		System.out.println("User has " + user + " &  PC has " + pc);
+		int chose = tossUp(); 
+		int i;
+		for (i = 0; i < 9; ++i, chose++) { 
+			if (chose % 2 == 0) {
+				System.out.println("It is User's turn");
+				if (userMove(user)) {
+					System.out.println("User Won");
+					break; 
+				}
+			} else {
+				System.out.println("It is PC's turn");
+				if (userMove(pc)) {
+					System.out.println("PC Won, Sorry!!");
+					break;
+				}
+			}
+			showBoard();
+		} 
+
+		if (i == 9) {
+			System.out.println("Its a tie");
+		} else
+			showBoard();
 	}
 }
