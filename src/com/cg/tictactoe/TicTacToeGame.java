@@ -74,9 +74,9 @@ public class TicTacToeGame {
 	return 0 ;
 }
 	private static int getBestNextMove(char pc, char user) {
-		int index= potentialWinner(pc);  
+		int index= potentialWinner(pc);  // apna check kar rahaa hai pc
 		if(index == 0) 
-			index = potentialWinner(user);    
+			index = potentialWinner(user);    // mera check kar rahaa hai pc
 		if(index ==0)
 		{  if(board[1]==' ') return 1;
 		   else if(board[3]==' ') return 3;
@@ -84,7 +84,12 @@ public class TicTacToeGame {
 		   else if(board[9]==' ') return 9;
 		   else if(board[5]==' ') return 5;
 		}
-	    
+	    if(index == 0) {
+	    	        if(board[2]==' ') return 2;
+			   else if(board[4]==' ') return 4;
+			   else if(board[6]==' ') return 6;
+			   else if(board[8]==' ') return 8;
+	    	}
 	    return index;
 	}
 
@@ -120,15 +125,15 @@ public class TicTacToeGame {
 		int i;
 		for (i = 0; i < 9; ++i, chose++) { 
 			if (chose % 2 == 0) {
-				System.out.println("user turn");
+				System.out.println("It is User's turn");
 				if (userMove(user)) {
-					System.out.println("User jeeta");
+					System.out.println("User Won");
 					break; 
 				}
 			} else {
-				System.out.println("pc turn");
+				System.out.println("It is PC's turn");
 				if (pcMove(pc,user)) {
-					System.out.println("pc jeeta");
+					System.out.println("Pc Won Sorry!!!");
 					break;
 				}
 			}
