@@ -43,7 +43,18 @@ public class TicTacToeGame {
 			System.out.println("Index is occupied");
 		return userMove(user);
 	}
-
+	private static boolean pcMove(char pc,char user) {
+    
+		int index;
+		do {
+		index= (int) Math.ceil(Math.random() * 9);
+		}while(board[index] != ' ');
+		if (index == 0)	
+			return false;
+		board[index] = pc;
+		return checkWinner(board,pc);
+		
+	}
 	public static boolean checkWinner(char[] b, char ch) {
 		return ((b[1] == ch && b[2] == ch && b[3] == ch) || (b[4] == ch && b[5] == ch && b[6] == ch)
 				|| (b[7] == ch && b[8] == ch && b[9] == ch) || (b[1] == ch && b[4] == ch && b[7] == ch)
@@ -68,20 +79,22 @@ public class TicTacToeGame {
 		int i;
 		for (i = 0; i < 9; ++i, chose++) { 
 			if (chose % 2 == 0) {
-				System.out.println("It is User's turn");
+				System.out.println("user turn");
 				if (userMove(user)) {
-					System.out.println("User Won");
+					System.out.println("User jeeta");
 					break; 
 				}
 			} else {
-				System.out.println("It is PC's turn");
-				if (userMove(pc)) {
-					System.out.println("PC Won, Sorry!!");
+				System.out.println("pc turn");
+				if (pcMove(pc,user)) {
+					System.out.println("pc jeeta");
 					break;
 				}
 			}
 			showBoard();
 		} 
+			
+		 
 
 		if (i == 9) {
 			System.out.println("Its a tie");
