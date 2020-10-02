@@ -47,7 +47,12 @@ public class TicTacToeGame {
 	public static boolean checkWinner(char[] b, char ch) {
 		return false;
 	}
-
+    
+	public static int tossUp() {
+		int toss = (int) Math.floor(Math.random() * 2);
+		return toss;
+	}
+	
 	public static void main(String[] args) {
 		System.out.println("Welcome to TicTacToe Game");
 		board = createBoard();
