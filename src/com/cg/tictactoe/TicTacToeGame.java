@@ -43,6 +43,36 @@ public class TicTacToeGame {
 			System.out.println("Index is occupied");
 		return userMove(user);
 	}
+	private static int potentialWinner(char ch) {
+	     if(board[1] == ch && board[2] == ch && board[3] == ' ') return 3;
+	else if(board[1] == ch && board[3] == ch && board[2] == ' ') return 2;
+	else if(board[2] == ch && board[3] == ch && board[1] == ' ') return 1;
+	else if(board[4] == ch && board[5] == ch && board[6] == ' ') return 6;
+	else if(board[4] == ch && board[6] == ch && board[5] == ' ') return 5;
+	else if(board[6] == ch && board[5] == ch && board[4] == ' ') return 4;
+	else if(board[7] == ch && board[8] == ch && board[9] == ' ') return 9;
+	else if(board[7] == ch && board[9] == ch && board[8] == ' ') return 8;
+	else if(board[8] == ch && board[9] == ch && board[7] == ' ') return 7;
+
+	else if(board[1] == ch && board[4] == ch && board[7] == ' ') return 7;
+	else if(board[1] == ch && board[7] == ch && board[4] == ' ') return 4;
+	else if(board[7] == ch && board[4] == ch && board[1] == ' ') return 1;
+	else if(board[5] == ch && board[8] == ch && board[2] == ' ') return 2;
+	else if(board[5] == ch && board[2] == ch && board[8] == ' ') return 8;
+	else if(board[8] == ch && board[2] == ch && board[5] == ' ') return 5;
+	else if(board[3] == ch && board[6] == ch && board[9] == ' ') return 9;
+	else if(board[3] == ch && board[9] == ch && board[6] == ' ') return 6;
+	else if(board[6] == ch && board[9] == ch && board[3] == ' ') return 3;
+
+	else if(board[1] == ch && board[5] == ch && board[9] == ' ') return 9;
+	else if(board[1] == ch && board[9] == ch && board[5] == ' ') return 5;
+	else if(board[5] == ch && board[9] == ch && board[1] == ' ') return 1;
+
+	else if(board[3] == ch && board[5] == ch && board[7] == ' ') return 7;
+	else if(board[7] == ch && board[5] == ch && board[3] == ' ') return 3;
+	else if(board[7] == ch && board[3] == ch && board[5] == ' ') return 5;
+	return 0 ;
+}
 	private static boolean pcMove(char pc,char user) {
     
 		int index;
